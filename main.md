@@ -104,4 +104,48 @@ which allows the operators to do so in a maintainable way.
 
 # G. Container Technology
 
+Container technology is a kind of *OS-level* virtualization that runs multiple userspaces,
+with restrictions on the resources they can access,
+while the userspaces are referred to as *containers*.
+Container technology is widely used in today's cloud computing environments for several reasons:
+
+- Container is lightweight.
+- Container bundles all the dependencies together, making shipping easy.
+- Deployment with containers is fast.
+- Deployment is more scalable than VM's.
+- Container can run everywhere, reducing lock-in's.
+
 # H. Container Data
+
+By default, the storage presented to the container instances are *empheral* local storage,
+which is implemented by using union filesystem on top.
+With help of the storage driver behind the scenes,
+the data written to the root of different container instances are actually written to different (temporary) actual locations,
+and the lifetime is tied to the instance,
+making them deleted upon container exit.
+
+To actually persist the files, Docker provides *volumes* and *bind mounts* for the purpose.
+*Volumes* exposes storages managed by Docker to the containers,
+while *bind mounts* exposes a directory on the host directly into the containers.
+These can be done, respectively, by
+
+```sh
+docker volume create my-volume
+docker run --mount source=my-volume,target=/app ...
+```
+
+and
+
+```sh
+docker run -v /path/to/host/app:/app ...
+```
+
+.
+
+# I. Why Pods?
+
+Kubernetes uses Pod as a thin wrapper around a container (or several containers).
+Within a pod, the containers are able to *share the local network* and other resources,
+which must all *be deployed together* onto a specific executing node.
+Without the notion of pods, one cannot express this idea in the configurations when using Kubernetes,
+which is why pods exists.
