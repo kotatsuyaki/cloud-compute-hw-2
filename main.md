@@ -149,3 +149,26 @@ Within a pod, the containers are able to *share the local network* and other res
 which must all *be deployed together* onto a specific executing node.
 Without the notion of pods, one cannot express this idea in the configurations when using Kubernetes,
 which is why pods exists.
+
+# J. Kubernetes vs Docker Swarm
+
+Compared to Kubernetes, which is a feature-rich all-in-one orchestration platform,
+Docker Swarm is simpler and easier to learn and setup.
+Kubernetes has grown to be a large FOSS community,
+and is offered by the huge cloud providers these days as managed services,
+which is why it's much more popular than its competitors.
+
+# K. Docker Security Issues
+
+Docker is considered to be less secure than virtual machines,
+since there are many things that are shared between the containers and the host,
+including the kernel, the (part of, including `/sys` and the devices) filesystems,
+and more.
+Container breakout and resource starvation is also much more probably than virtual machines.
+
+# L. Windows Container and Hyper-V
+
+The difference between Windows Container and Hyper-V on Windows
+is analogous to the difference between Docker and QEMU/KVM on Linux.
+Windows Container runs the containers that shares the kernel with the host Windows operating system,
+while the Hyper-V hypervisor creates fully virtualized VM's.
