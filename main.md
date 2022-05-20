@@ -72,9 +72,35 @@ which is not commonly done using virtual machines due to the bloat of virtual ma
 
 ## Deployment
 
-*Deployment* in Kubernetes provides declarative updates to the deployed applications.
+*Deployment* in Kubernetes is a declarative way to specify how to create and manage the *pods*
+that constitutes a container app.
+Typically things like the container images to be used
+and the number of replicas are specified in a deployment.
+
+## Service
+
+A *service* in Kubernetes groups one or more pods in a cluster as a logical application,
+presenting them to the outside world as a network service.
+In this assignment, a `NodePort` service is used to expose the socket service on all nodes.
+
+## Pod
+
+A *pod* in Kubernetes is an instance (or several instances) of running Docker containers,
+and is the smallest unit of execution.
+When there are multiple containers inside a single pod,
+the containers share network and storage resources.
 
 # F. Kubernetes
+
+Kubernetes is a system for managing containerized applications and services.
+It provides us with many features such as *service discovery* (exposing container with a DNS name),
+*rollouts* and *rollbacks* (gradually reaping old instances and creating new ones),
+*fault tolerance* (restarts unheathy instances),
+*load-balancing*, and more.
+
+The need of Kubernetes stems from the fact that managing containers *across multiple servers* at scale is hard.
+Kubernetes presents a tightly integrated interface and declarative configurations,
+which allows the operators to do so in a maintainable way.
 
 # G. Container Technology
 
