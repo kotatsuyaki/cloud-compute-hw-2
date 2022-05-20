@@ -15,6 +15,10 @@ maketitle: true
 
 ![Running the container and the client](./images/hello.png)
 
+The size of the container image is minimized by using multi-stage builds functionaliy provided by Docker.
+A statically-linked binary built in under Alpine Linux container is copied to an empty (`FROM scratch`) container,
+producing an image with only 13 kilobytes.
+
 # B. Screenshots for Task 3
 
 The client was modified to read destination IP and port from stdin.
