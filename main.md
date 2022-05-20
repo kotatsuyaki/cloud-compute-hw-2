@@ -17,6 +17,14 @@ maketitle: true
 
 # B. Screenshots for Task 3
 
+The client was modified to read destination IP and port from stdin.
+
+![Deployment configuration](./images/deployment.png)
+
+![Service configuration](./images/service.png)
+
+![`kubectl` and client outputs](./images/misc.png)
+
 # C. Performance of Container vs VM (Task 2)
 
 All the experiments are ran for at least 3 times,
@@ -61,6 +69,10 @@ Docker containers are nowadays mainly used for deploying stable development and 
 which is not commonly done using virtual machines due to the bloat of virtual machine images.
 
 # E. Explain "Deployment", "Service" and "Pod"
+
+## Deployment
+
+*Deployment* in Kubernetes provides declarative updates to the deployed applications.
 
 # F. Kubernetes
 
